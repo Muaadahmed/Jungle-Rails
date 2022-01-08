@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-
+# Order.line_items.last.products will give the product object
   def show
     @order = Order.find(params[:id])
   end
