@@ -2,6 +2,10 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @current_order = @order.line_items.last.product
+    @order.line_items.each do |item|
+      puts "item: ", item
+    end
   end
 
   def create
