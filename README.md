@@ -1,6 +1,6 @@
 # Jungle
 
-A mini e-commerce application built with Rails and powered by Stripe.
+A mini e-commerce application built with Rails and powered by Stripe. Customer can browse products, add products to cart and make payments with Stripe.
 
 ## Additional Steps for Apple M1 Machines
 
