@@ -1,6 +1,6 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails and powered by Stripe.
 
 ## Additional Steps for Apple M1 Machines
 
@@ -20,9 +20,16 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 7. Put Stripe (test) keys into appropriate .env vars
 8. Run `bin/rails s -b 0.0.0.0` to start the server
 
+## Screenshots
+
+![Homepage](https://raw.githubusercontent.com/Muaadahmed/Jungle-Rails/master/img/home.png)
+![Cart](https://raw.githubusercontent.com/Muaadahmed/Jungle-Rails/master/img/cart.png)
+![Admin Products](https://raw.githubusercontent.com/Muaadahmed/Jungle-Rails/master/img/admin_product.png)
+![Amin Categories](https://github.com/Muaadahmed/Jungle-Rails/blob/master/img/admin_cat.png?raw=true)
+
 ## Stripe Testing
 
-Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
+Use Credit Card # 4242 4242 4242 4242 for testing success scenarios.
 
 More information in their docs: <https://stripe.com/docs/testing#cards>
 
