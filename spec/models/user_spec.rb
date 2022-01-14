@@ -42,10 +42,6 @@ RSpec.describe User, type: :model do
       expect(@user).to_not be_valid
       expect(@user.errors.full_messages[0]).to eq("Password is too short (minimum is 3 characters)")
     end
-    # it 'User should be created with password and password confirmation' do 
-    #   @user = User.create(name: "Elliot", email: "e.elliot@gmail.com", password: "password", password_confirmation: "Password")
-    #   expect(@user.password_confirmation).to_not be_nil
-    # end
 
     it 'User is valid if email is unique' do 
       @user = User.create(name: "Elliot", email: "e.elliot@gmail.com", password: "password", password_confirmation: "password", first_name: "Elliot", last_name: "Alexander")
@@ -59,16 +55,20 @@ RSpec.describe User, type: :model do
     end
   end
   describe '.authenticate_with_credentials' do
-    it 'User is valid if email has a space before and after' do
-      # @user = User.create(name: "Muaad", email: "e.elliot@gmail.com", password: "password", password_confirmation: "password", first_name: "Elliot", last_name: "Alexander")
+    it 'User is authenticated if email has a space before and after' do
+      @user = User.create(name: "Muaad", email: "e.elliot@gmail.com", password: "password", password_confirmation: "password", first_name: "Elliot", last_name: "Alexander")
       email = " e.elliot@gmail.com "
       password = "password"
-      p User
-      user = User.find_by(email: "e.elliot@gmail.com")
-      userSession = user.authenticate_with_credentials(email, password)
-      p "usersession ------->", userSession
-      expect(userSession).to be_valid
-      byebug
+      userSession = @user.authenticate_with_credentials(email, password)
+      expect(userSession).to be_present
+    end
+
+    it 'User is authenticated if email has the wrong case' do
+      @user = User.create(name: "Muaad", email: "e.elliot@gmail.com", password: "password", password_confirmation: "password", first_name: "Elliot", last_name: "Alexander")
+      email = "E.ellIot@gmail.com"
+      password = "password"
+      userSession = @user.authenticate_with_credentials(email, password)
+      expect(userSession).to be_present
     end
   end
 end
